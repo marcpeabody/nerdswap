@@ -26,9 +26,6 @@ class MTGLink extends Component {
       })
     }
   }
-  hoverLink() {
-    alert('hover')
-  }
   displayText() {
     const quantityText = this.props.quantity > 1 ? ` x${this.props.quantity}` : '';
     const loadingText = this.state.loading ? ' Loading...' : '';
