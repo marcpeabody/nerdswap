@@ -26,9 +26,6 @@ class MTGLink extends Component {
       })
     }
   }
-  hoverLink() {
-    alert('hover')
-  }
   displayText() {
     const quantityText = this.props.quantity > 1 ? ` x${this.props.quantity}` : '';
     const loadingText = this.state.loading ? ' Loading...' : '';
@@ -36,7 +33,7 @@ class MTGLink extends Component {
       const card = this.state.card;
       return (<div>
                 {card.name}{quantityText}
-                <img className="cardThumb" src={card.imageUrl} size="40" role="presentation"/>
+                <img className="cardThumb" src={card.imageUrl} size="40" role="presentation" alt={card.name}/>
               </div>);
     } else {
       return (<div

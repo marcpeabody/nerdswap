@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import mtg from 'mtgsdk';
 
 class MTGCard extends Component {
-  constructor() {
-    super();
-    this.state = { image: null };
+  constructor(props) {
+    super(props);
+    this.state = { card: null };
 
-    mtg.card.find(3).then(result => { // 3 is Black Lotus
-      this.setState({ image: result.card.imageUrl });
+    mtg.card.find(this.props.id || 3).then(result => { // 3 is Black Lotus
+      this.setState({ card: result.card });
     })
   }
   render() {
-    return this.state.image ? (<img src={this.state.image} role="presentation"/>) : <div>Loading</div>
+    const {card} = this.state;
+    return card ? (<img alt={card.name} src={card.imageUrl} role="presentation"/>) : <div>Loading</div>
   }
 }
 

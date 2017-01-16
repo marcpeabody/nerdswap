@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Menu />
         <MTGDeck items={WinningDeck}/>
-        <MTGCard />
+        <MTGCard id="42"/>
       </div>
     );
   }
