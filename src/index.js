@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, hashHistory } from 'react-router'
+import App from './App'
+import News from './pages/News'
+import About from './pages/About'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/news" component={News} />
+    <Route path="/about" component={About} />
+  </Router>
+), document.getElementById('root'))

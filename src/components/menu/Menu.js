@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 import { Navbar, Nav, NavItem, FormGroup, FormControl, Button } from 'react-bootstrap';
 import "./Menu.css";
 
@@ -6,9 +7,6 @@ class Menu extends Component {
   constructor() {
     super();
     this.state = { };
-  }
-  goTo(item) {
-      console.log("clicked: " + item);
   }
   render() {
     return(
@@ -19,8 +17,12 @@ class Menu extends Component {
         </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-            <NavItem onClick={() => this.goTo('news')} href="#">News</NavItem>
-            <NavItem onClick={() => this.goTo('about')} href="#">About</NavItem>
+            <NavItem>
+                <Link to="/news">News</Link>
+            </NavItem>
+            <NavItem>
+                <Link to="/about">About</Link>
+            </NavItem>
         </Nav>
         <Navbar.Form pullRight>
             <FormGroup>
