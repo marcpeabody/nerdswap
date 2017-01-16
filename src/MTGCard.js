@@ -11,7 +11,7 @@ class MTGCard extends Component {
     })
   }
   render() {
-    return this.state.image ? (<img src={this.state.image} />) : <div>Loading</div>
+    return this.state.image ? (<img src={this.state.image} role="presentation"/>) : <div>Loading</div>
   }
 }
 
