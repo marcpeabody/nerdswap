@@ -1,0 +1,19 @@
+.buildable-deck {
+  width: 300px;
+  border: 1px solid orange;
+  background-color: #fce9c4;
+}
+.buildable-deck .header {
+  border-bottom: 1px solid orange;
+  background-color: #dcc9c4;
+}
+
+
+form.addDeckLineItem { }
+form.addDeckLineItem .name {
+
+}
+
+.buildable-deck .results img {
+  width: 100px;
+}
