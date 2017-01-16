@@ -1,3 +1,7 @@
+.clickMeLineItem {
+  cursor: pointer;
+}
+
 img.cardThumb {
   height: 40px;
 }

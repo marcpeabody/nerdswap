@@ -2,21 +2,27 @@ import React, { Component } from 'react';
 import mtg from 'mtgsdk';
 import './MTGLink.css';
 
-window.mtg = mtg
 class MTGLink extends Component {
   constructor(props) {
     super();
-    this.state = { image: null };
-    mtg.card.all({name: props.name}).on('data', result => {
+    this.state = {
+      card: null,
+      loading: false
+    };
+  }
+  loadCard() {
+    this.setState({loading: true});
+    mtg.card.all({name: this.props.name}).on('data', result => {
       // this actually loops through many results sometimes, so only respond to first
       // not all have an image; use the first result that has an image
       if (!this.state.card && result.imageUrl) {
-        this.setState({ card: result });
+        this.setState({ card: result, loading: false });
       }
     })
   }
   displayText() {
     const quantityText = this.props.quantity > 1 ? ` x${this.props.quantity}` : '';
+    const loadingText = this.state.loading ? ' Loading...' : '';
     if (this.state.card) {
       const card = this.state.card;
       return (<div>
@@ -24,7 +30,7 @@ class MTGLink extends Component {
                 <img className="cardThumb" src={card.imageUrl} size="40" />
               </div>);
     } else {
-      return `Loading "${this.props.name}${quantityText}"`;
+      return (<div onClick={this.loadCard.bind(this)}>{this.props.name}{quantityText}{loadingText}</div>);
     }
   }
   render() {
@@ -37,7 +43,7 @@ class MTGLink extends Component {
              {display}
         </div>)
     } else {
-      return <div>{display}</div>
+      return <div className="clickMeLineItem">{display}</div>
     }
   }
 }
