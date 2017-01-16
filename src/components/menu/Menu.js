@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-import { Navbar, Nav, NavItem, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Navbar, FormGroup, FormControl, Button } from 'react-bootstrap';
 import "./Menu.css";
 
 class Menu extends Component {
@@ -16,14 +16,10 @@ class Menu extends Component {
             <a href="#">NerdSwap</a>
         </Navbar.Brand>
         </Navbar.Header>
-        <Nav>
-            <NavItem>
-                <Link to="/news">News</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="/about">About</Link>
-            </NavItem>
-        </Nav>
+        <ul className="nav navbar-nav">
+            <li><Link to="/news">News</Link></li>
+            <li><Link to="/about">About</Link></li>
+        </ul>
         <Navbar.Form pullRight>
             <FormGroup>
                 <FormControl type="text" placeholder="Search" bsClass="form-control search"/>

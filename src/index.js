@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, hashHistory } from 'react-router'
 import App from './App'
-import News from './pages/News'
-import About from './pages/About'
+import News from './components/news/News'
+import About from './components/about/About'
 
 render((
   <Router history={hashHistory}>

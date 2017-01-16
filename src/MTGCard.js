@@ -12,7 +12,7 @@ class MTGCard extends Component {
   }
   render() {
     const {card} = this.state;
-    return card ? (<img alt={card.name} src={card.imageUrl} />) : <div>Loading</div>
+    return card ? (<img alt={card.name} src={card.imageUrl} role="presentation"/>) : <div>Loading</div>
   }
 }
 

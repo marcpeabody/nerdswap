@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Menu from "../components/menu/Menu.js";
+import Menu from "../menu/Menu.js";
+import "./About.css";
 
 class About extends Component {
   render() {
