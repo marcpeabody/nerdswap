@@ -12,13 +12,22 @@ class MTGLink extends Component {
   }
   loadCard() {
     this.setState({loading: true});
-    mtg.card.all({name: this.props.name}).on('data', result => {
-      // this actually loops through many results sometimes, so only respond to first
-      // not all have an image; use the first result that has an image
-      if (!this.state.card && result.imageUrl) {
-        this.setState({ card: result, loading: false });
-      }
-    })
+    if (this.props.id) {
+      mtg.card.find(this.props.id).then(result => { // 3 is Black Lotus
+        this.setState({ card: result.card });
+      })
+    } else {
+      mtg.card.all({name: this.props.name}).on('data', result => {
+        // this actually loops through many results sometimes, so only respond to first
+        // not all have an image; use the first result that has an image
+        if (!this.state.card && result.imageUrl) {
+          this.setState({ card: result, loading: false });
+        }
+      })
+    }
+  }
+  hoverLink() {
+    alert('hover')
   }
   displayText() {
     const quantityText = this.props.quantity > 1 ? ` x${this.props.quantity}` : '';
@@ -30,7 +39,10 @@ class MTGLink extends Component {
                 <img className="cardThumb" src={card.imageUrl} size="40" />
               </div>);
     } else {
-      return (<div onClick={this.loadCard.bind(this)}>{this.props.name}{quantityText}{loadingText}</div>);
+      return (<div
+                onMouseOver={this.loadCard.bind(this)}>
+                {this.props.name}{quantityText}{loadingText}
+              </div>);
     }
   }
   render() {
@@ -59,4 +71,3 @@ MTGLink.contextTypes = {
 
 
 export default MTGLink;
-
