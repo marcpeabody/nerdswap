@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MTGLink from './MTGLink';
 
 const MTGDeck = (props) => {

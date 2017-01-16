@@ -36,7 +36,7 @@ class MTGLink extends Component {
       const card = this.state.card;
       return (<div>
                 {card.name}{quantityText}
-                <img className="cardThumb" src={card.imageUrl} size="40" />
+                <img className="cardThumb" src={card.imageUrl} size="40" alt={card.name} />
               </div>);
     } else {
       return (<div
