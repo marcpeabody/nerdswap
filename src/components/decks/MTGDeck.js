@@ -1,8 +1,8 @@
 import React from 'react';
-import MTGLink from '../MTGLink';
+import MTGLinkLoader from '../MTGLinkLoader';
 
 const MTGDeck = (props) => {
-  const items = props.items.map((lineItem, i) => <MTGLink key={i} {...lineItem} />);
+  const items = props.items.map((lineItem, i) => <MTGLinkLoader key={i} {...lineItem} />);
   return (
     <div className="deck">
       {items}
