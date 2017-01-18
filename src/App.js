@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Menu from "./components/menu/Menu.js";
-import MTGDeck from './MTGDeck';
-import MTGBuildableDeck from './MTGBuildableDeck';
-import MTGCard from './MTGCard';
+import MTGDeck from './components/decks/MTGDeck';
+import MTGBuildableDeck from './components/decks/MTGBuildableDeck';
+import MTGCard from './components/MTGCard';
 import './App.css';
 import WinningDeck from './WinningDeck';
 
