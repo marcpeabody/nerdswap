@@ -3,18 +3,23 @@ import './MTGLink.css';
 
 
 class MTGLink extends Component {
+  formatPrice(price) {
+    return (price) ? `$${price.toFixed(2)}` : '';
+  }
   displayText() {
-    const {card, name, loadCard, quantity, loading} = this.props;
+    const {card, name, loadCard, quantity, loading, price} = this.props;
     const quantityText = quantity > 1 ? ` x${quantity}` : '';
     const loadingText = loading ? ' Loading...' : '';
+    const totalPrice = (price && quantity) ? (this.formatPrice(price*quantity)) : '';
+    const totalText = totalPrice ? ` = ${totalPrice}` : '';
     if (card) {
       return (<div>
-                {card.name}{quantityText}
+                {card.name} {this.formatPrice(price)}{quantityText}{totalText}
                 <img className="cardThumb" src={card.imageUrl} size="40" role="presentation" alt={card.name}/>
               </div>);
     } else {
       return (<div onMouseOver={loadCard}>
-                {name}{quantityText}{loadingText}
+                {name} {this.formatPrice(price)}{quantityText}{totalText}{loadingText}
               </div>);
     }
   }
