@@ -8,7 +8,7 @@ class MTGLink extends Component {
   }
   displayText() {
     const {card, name, loadCard, quantity, loading, price} = this.props;
-    const quantityText = quantity > 1 ? ` x${quantity}` : '';
+    const quantityText = ` x${quantity}`;
     const loadingText = loading ? ' Loading...' : '';
     const totalPrice = (price && quantity) ? (this.formatPrice(price*quantity)) : '';
     const totalText = totalPrice ? ` = ${totalPrice}` : '';

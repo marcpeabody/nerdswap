@@ -7,14 +7,14 @@ export default [
     name: "Thraben Inspector",
     quantity: 4
   },
-  // {
-  //   name: "Toolcraft Exemplar",
-  //   quantity: 4
-  // },
-  // {
-  //   name: "Inventor's Apprentice",
-  //   quantity: 3
-  // },
+  {
+    name: "Toolcraft Exemplar",
+    quantity: 4
+  },
+  {
+    name: "Inventor's Apprentice",
+    quantity: 3
+  },
   // {
   //   name: "Veteran Motorist",
   //   quantity: 4
