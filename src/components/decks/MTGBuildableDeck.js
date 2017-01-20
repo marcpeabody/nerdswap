@@ -85,6 +85,21 @@ class MTGBuildableDeck extends Component {
     this.state = {
       items: props.items
     }
+
+    this.priceItems = this.priceItems.bind(this);
+    this.addLineItems = this.addLineItem.bind(this);
+  }
+  fetchItemPrice(item) {
+    return (Math.random()*15);
+  }
+  priceItems() {
+    const {items} = this.state;
+    const updatedPriceItems = items.map(item => {
+      const price = this.fetchItemPrice(item);
+      item.price = price;
+      return item;
+    });
+    this.setState({items: updatedPriceItems});
   }
   addLineItem(lineItem) {
     const lineItemData = {quantity: 4, name: lineItem.name, id: lineItem.id};
@@ -95,9 +110,10 @@ class MTGBuildableDeck extends Component {
       <div className="buildable-deck">
         <div className="header">
           Buildable Deck
+          <button onClick={this.priceItems}>Price</button>
         </div>
         <MTGDeck items={this.state.items} />
-        <LineItemForm addLineItem={this.addLineItem.bind(this)}/>
+        <LineItemForm addLineItem={this.addLineItem}/>
       </div>
     );
   }
