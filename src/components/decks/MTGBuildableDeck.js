@@ -87,7 +87,7 @@ class MTGBuildableDeck extends Component {
     }
 
     this.priceItems = this.priceItems.bind(this);
-    this.addLineItems = this.addLineItem.bind(this);
+    this.addLineItem = this.addLineItem.bind(this);
   }
   fetchItemPrice(item) {
     return (Math.random()*15);
